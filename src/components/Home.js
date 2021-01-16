@@ -18,6 +18,9 @@ function Home(){
                 <li>
                     <Link to="/users">Users</Link>
                 </li>
+                <li>
+                    <Link to="/simple-interest">Simple Interest</Link>
+                </li>
             </ul>
         </nav>
          <h1>Welcome to capscom technology almora</h1>
