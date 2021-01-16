@@ -1,18 +1,19 @@
-import { useState } from "react";
 import User from "./User";
 import usersList from "../collections/userList"
+import { Switch, useRouteMatch,Route} from "react-router-dom";
+import UserDetails from "./UserDetails";
 
 function Users(){
-
-    const [users,setUsers]=useState(usersList)
-
+    let {path,url}=useRouteMatch()
     return(
-        <>
-            <ol>
-                {users.map((item)=>{
-                    return <li><User user={item}/></li>
-                })}
-            </ol>
+        <>  
+            {usersList.map((item)=>{
+                return <User url={url} item={item}/>
+            })}
+
+            <Switch>               
+                <Route path={`${path}/:id`} component={UserDetails}></Route>                                    
+            </Switch>
         </>
     )
 }

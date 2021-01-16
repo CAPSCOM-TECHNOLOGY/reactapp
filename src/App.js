@@ -1,55 +1,22 @@
 import './App.css'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom'
-import About from './components/About'
-import Contact from './components/Contact'
-import Home from './components/Home'
-import Users from './components/Users'
-import UserDetails from './components/UserDetails'
-
-
+import {BrowserRouter as Router, Switch,Route} from 'react-router-dom'
+import Home from "./components/Home"
+import About from "./components/About"
+import Users from "./components/Users"
+import Contact from "./components/Contact"
+import UserDetails from "./components/UserDetails"
 function App(){
   return(
     <>
-     <Router>
-       <nav>
-         <ul>
-           <li>
-             <Link to="/">Home</Link>
-           </li>
-           <li>
-             <Link to="/about-us">About us</Link>
-           </li>
-           <li>
-             <Link to="/contact-us">Contact us</Link>
-           </li>
-           <li>
-             <Link to="/users">Users</Link>
-           </li>           
-         </ul>
-       </nav>
-
-    <Switch>
-      <Route path="/about-us">
-        <About/>
-      </Route>
-      <Route path="/contact-us">
-        <Contact/>
-      </Route>
-      <Route path="/users">
-        <Users/>
-      </Route>
-      <Route path="/user/:id" children={<UserDetails/>} />              
-      <Route path="/">
-        <Home/>
-      </Route>      
-    </Switch>
-
-     </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/about-us" component={About}></Route>
+          <Route exact path="/contact-us" component={Contact}></Route>
+          <Route exact path="/users" component={Users}></Route>
+          <Route exact path="/users/:id" component={UserDetails}></Route>
+        </Switch>
+      </Router>
     </>
   )
 }

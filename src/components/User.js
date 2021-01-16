@@ -1,11 +1,9 @@
-function User({user}){
-    let url="user/"+user.id
+import {Link} from 'react-router-dom'
+function User({url,item}){        
     return(
-        <>  
-        Name: {user.name} <br/>
-        Age: {user.age} <br/>
-        Address: {user.address}<br/>
-        <a href={url}>Profile</a>        
+        <>      
+        <h1>{item.name}</h1>            
+        <Link to={`${url}/${item.id}`}>Profile</Link>
         </>
     )
 }
