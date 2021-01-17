@@ -21,9 +21,11 @@ function Users(){
 
     return(
         <>  
+        <div>
             {users.map((item)=>{
-                return <User url={url} item={item} likeHandler={likeHandler}/>
+                return <User key={item.id} url={url} item={item} likeHandler={likeHandler}/>
             })}
+        </div>
 
             <Switch>               
                 <Route path={`${path}/:id`} component={UserDetails}></Route>                                    
