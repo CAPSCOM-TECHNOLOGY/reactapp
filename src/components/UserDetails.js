@@ -3,10 +3,12 @@ import userList from "../collections/userList"
 function UserDetails(){
     let {id}=useParams()
     let user_id=parseInt(id)
-    let user=userList.filter(item=>item.id===user_id)
+    let userdata=userList.filter(item=>item.id===user_id)
+
     return(
         <>
-       Welcome {user[0].name}
+       Hey, I am {userdata[0].name}, thanks for visiting my profile <br/>
+       I have {userdata[0].likes} likes. <br/>       
         </>
     )
 }
